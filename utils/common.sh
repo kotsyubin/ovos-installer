@@ -264,6 +264,12 @@ function install_fedora_packages() {
     dnf install -y python3 python3-devel python3-pip python3-virtualenv python3-libdnf5 newt expect jq "${extra_packages[@]}" &>>"$LOG_FILE"
 }
 
+# Install packages for AltLinux-based distributions
+function install_altlinux_packages() {
+    local extra_packages=("$@")
+    apt-get install -y python3 python3-devel python3-module-pip python3-module-virtualenv newt52 expect jq "${extra_packages[@]}" &>>"$LOG_FILE"
+}
+
 # Install packages for Red Hat-based distributions
 function install_rhel_packages() {
     local extra_packages=("$@")
@@ -317,6 +323,9 @@ function required_packages() {
         ;;
     fedora)
         install_fedora_packages "${extra_packages[@]}"
+        ;;
+    altlinux)
+        install_altlinux_packages "${extra_packages[@]}"
         ;;
     almalinux | rocky | centos)
         install_rhel_packages "${extra_packages[@]}"

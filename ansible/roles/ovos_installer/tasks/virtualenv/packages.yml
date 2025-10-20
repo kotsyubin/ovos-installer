@@ -63,6 +63,31 @@
   when: ansible_os_family == "RedHat"
 
 - name: Handle virtualenv package requirements (ovos/hivemind)
+  community.general.apt_rpm:
+    pkg:
+      - build-essential
+      - swig
+      - libfann-devel
+      - libalsa-devel
+      - libpulseaudio-devel
+      - libportaudio2
+      - mpg123
+      - sox
+      - libsox-fmt-mp3
+      - libespeak-ng1
+      - espeak-ng
+      - flac
+      - mpv
+      - libxslt-devel
+      - libopenblas-devel
+      - pkg-config
+      - libicu-devel
+      - libportaudio2-devel
+      - libjpeg-devel
+    state: present
+  when: ansible_distribution == "Altlinux"
+
+- name: Handle virtualenv package requirements (ovos/hivemind)
   community.general.zypper:
     name:
       - gcc-c++
