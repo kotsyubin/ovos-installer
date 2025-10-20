@@ -1,10 +1,13 @@
+{% if (ovos_installer_locale != "ru-ru") %}
+git+https://github.com/kotsyubin/ovos-config.git
+{% endif %}
 ovos-audio[extras]
 ovos-core[lgpl,plugins]
 ovos-dinkum-listener[extras,linux]
 ovos-docs-viewer
 ovos-PHAL[linux]
 ovos-phal-plugin-ipgeo
-{% if (ovos_installer_locale != "ca-es") and (ovos_installer_locale != "eu-es") and (ovos_installer_locale != "gl-es") %}
+{% if (ovos_installer_locale != "ca-es") and (ovos_installer_locale != "eu-es") and (ovos_installer_locale != "gl-es") or (ovos_installer_locale != "ru-ru") %}
 ovos-tts-plugin-piper
 {% endif %}
 ovos-tts-plugin-polly
