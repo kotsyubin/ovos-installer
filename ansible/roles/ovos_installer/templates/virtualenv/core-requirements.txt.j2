@@ -1,8 +1,9 @@
 ovos-audio[extras]
 {% if (ovos_installer_locale != "ru-ru") %}
-git+https://github.com/kotsyubin/ovos-core.git
-{% endif %}
+git+https://github.com/kotsyubin/ovos-core.git[lgpl,plugins]
+{% else %}
 ovos-core[lgpl,plugins]
+{% endif %}
 ovos-dinkum-listener[extras,linux]
 ovos-docs-viewer
 ovos-PHAL[linux]
